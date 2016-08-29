@@ -1,0 +1,118 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="google-site-verification" content="tsC40Go6u6ldH1pmeafOZhKJc7v1dxGQ6lYzxqlkN2I" />
+<!-- * PwdHash-PoC
+     * Version of PwdHash amended to fix various flaws in the original implementation
+     * This version uses PBKDF2-SHA256 and allows control over the user-specified salt
+     * and iteration count.
+     * Version 0.1 Copyright (C) Cambridge University 2016
+     * Contributors: David Llewellyn-Jones, Graham Rymer
+     * Distributed under the BSD License
+     *-->
+
+<!--* Remote PwdHash Form
+      * An HTML form that calls the JavaScript implementation of PwdHash
+      * Version 1.0 Copyright (C) Stanford University 2004-2005
+      * Contributors: Dan Boneh, Collin Jackson, John Mitchell, Nick Miyake, and Blake Ross
+      * Distributed under the BSD License
+      * See http://crypto.stanford.edu/PwdHash for more info.
+      *-->
+  <title>PwdHash PoC</title>
+  <script src="js/forge.min.js"></script>
+
+  <script src="js/pwdhash.js" type="text/javascript"></script>
+  <script src="js/hashed-password.js" type="text/javascript"></script>
+  <script src="js/domain-extractor.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/pwdhash.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body onLoad="Init();">
+<table align=right style="margin: 3em 1em 1em 1em"><tr><td>
+<form name="hashform" action="error.html" method="POST"
+onsubmit="setTimeout('GenerateToTextField()', 0); return false;">
+<table id="theHashForm"><tr>
+<td class="stepList">
+<div class="step" id="theSiteDomain">
+<h3>Site Address</h3>
+<p><input type="text" name="domain"></p>
+</div>
+<div class="step" id="theSitePassword">
+<h3>Site Password</h3>
+<p><input type="password" name="sitePassword"></p>
+</div>
+</td>
+</tr>
+<tr>
+<td class="stepList gapAfter" colspan="2">
+<div class="step" id="theHashedPassword">
+<h3>Hashed Password</h3>	
+  <span id="theGeneratePanel">
+    <input type="text" name="hashedPassword">
+    <input type="submit" name"submitButton" value="Generate">
+  </span>
+<p align="center"><a id="theToggleModeLink" href="javascript:ToggleAdvancedMode()"></a></p>
+</div>
+</td>
+</tr>
+
+
+<tr>
+<td class="stepList config">
+<div class="step" id="theUserSalt">
+<h3>Config: User Salt</h3>
+<p><input type="text" name="salt" value="ChangeMe"></p>
+</div>
+<div class="step" id="theIterations">
+<h3>Config: Iterations</h3>
+<p><input type="number" name="iterations" value="5000"></p>
+</div>
+<span class="config-note">
+Config is stored locally in your browser across sessions
+</span>
+</td>
+</tr>
+
+</table>
+
+</td></tr><tr><td><div class="footer">Version 0.1</div>
+<div class="footer">Tip: You can save this page to disk.</div>
+</td></tr></table>
+
+<p align="center"><img src="images/cambridge_crest64.png"
+   alt="Stanford" align="center" width="64" height="64"> </p>
+
+      <H1 align=center><font color="#0000FF" face="Arial">
+         Cambridge PwdHash PoC
+	    </font></H1>
+	            
+<div id="theexplanation">
+<p>
+PwdHash generates password mutations. It's a proof-of-concept alteration of the original <a href="https://www.pwdhash.com">Stanford PwdHash</a>, but with a number of improvements that fix some of the weaknesses of the original. PwdHash-PoC uses the <a href="https://github.com/digitalbazaar/forge">Forge</a> implementation of PBKDF2-SHA512 to generate hashes.</p>
+
+<p>PwdHash will not turn a weak password into a strong one. <b>Always ensure your master password is sufficiently complex</b>.</p>
+<ul>
+<li>Visit the original <a href="https://www.pwdhash.com">PwdHash website</a>.</li>
+<li>Visit the <a href="http://www.cl.cam.ac.uk/research/security/">Cambridge Security Group website</a>.</li>
+<li>Read the <a href="#">Cracking PwdHash preprint</a> (PDF - not yet available).</li>
+<li>Send us <a href="mailto:David.Llewellyn-Jones@cl.cam.ac.uk">feedback</a>.</li>
+</ul>
+</div>
+</form>
+
+<div style="text-align: center">
+ PwdHash-PoC authors: <a href="http://www.cl.cam.ac.uk/~dl551/">David Llewellyn-Jones</a>,
+    <a href="https://www.cl.cam.ac.uk/people/#gr348">Graham Rymer</a>
+</div>
+
+
+<div style="text-align: center">
+ Original PwdHash authors: <a href="http://www.blakeross.com/">Blake Ross</a>,
+    <a href="http://www.collinjackson.com/">Collin Jackson</a>,
+      Nicholas Miyake,
+        <A href="http://crypto.stanford.edu/~dabo/">Dan Boneh</A> and <A 
+	  href="http://theory.stanford.edu/people/jcm/home.html">John C. 
+	    Mitchell</A>
+</div>
+</body>
+</html>
