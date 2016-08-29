@@ -11,7 +11,7 @@ This is a proof-of-concept alteration to the [Stanford PwdHash](https://www.pwdh
 
 Due to the changes this version is incompatible with the earlier PwdHash versions.
 
-You can test out the updated version at the [PwdHash-PoC](http://www.cl.cam.ac.uk/~dl551/pwdhash) website.
+You can test out the updated version at the [PwdHash-PoC](https://www.cl.cam.ac.uk/~dl551/pwdhash) website.
 
 ## Deploy
 
