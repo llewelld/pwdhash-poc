@@ -130,3 +130,13 @@ div.footer
   color: red;
 }
 
+.leftmargin
+{
+  margin: 3em 1em 1em 1em;
+}
+
+.textcentre {
+  text-align: center;
+}
+
+
