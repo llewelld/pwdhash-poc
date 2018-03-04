@@ -26,6 +26,7 @@ function Init() {
   document.hashform.sitePassword.value = "";
   document.hashform.hashedPassword.value = "Press Generate";
   document.hashform.hashedPassword.disabled = true;
+  document.hashform.submitButton.type = "submit";
   LoadConfig();
 }
 

@@ -31,7 +31,15 @@
 <table align=right style="margin: 3em 1em 1em 1em"><tr><td>
 <form name="hashform" action="error.html" method="POST"
 onsubmit="setTimeout('GenerateToTextField()', 0); return false;">
-<table id="theHashForm"><tr>
+<table id="theHashForm">
+<noscript>
+<tr><td>
+<p>
+Please enable Javascript to use this
+</p>
+</td></tr>
+</noscript>
+<tr>
 <td class="stepList">
 <div class="step" id="theSiteDomain">
 <h3>Site Address</h3>
@@ -46,17 +54,15 @@ onsubmit="setTimeout('GenerateToTextField()', 0); return false;">
 <tr>
 <td class="stepList gapAfter" colspan="2">
 <div class="step" id="theHashedPassword">
-<h3>Hashed Password</h3>	
+<h3>Hashed Password</h3>
   <span id="theGeneratePanel">
     <input type="text" name="hashedPassword">
-    <input type="submit" name"submitButton" value="Generate">
+    <input type="button" name="submitButton" value="Generate">
   </span>
 <p align="center"><a id="theToggleModeLink" href="javascript:ToggleAdvancedMode()"></a></p>
 </div>
 </td>
 </tr>
-
-
 <tr>
 <td class="stepList config">
 <div class="step" id="theUserSalt">
@@ -75,7 +81,7 @@ Config is stored locally in your browser across sessions
 
 </table>
 
-</td></tr><tr><td><div class="footer">Version 0.1</div>
+</td></tr><tr><td><div class="footer">Version 0.2</div>
 <div class="footer">Tip: You can save this page to disk.</div>
 </td></tr></table>
 
@@ -94,7 +100,10 @@ PwdHash generates password mutations. It's a proof-of-concept alteration of the 
 <ul>
 <li>Visit the original <a href="https://www.pwdhash.com">PwdHash website</a>.</li>
 <li>Visit the <a href="http://www.cl.cam.ac.uk/research/security/">Cambridge Security Group website</a>.</li>
-<li>Read the <a href="#">Cracking PwdHash preprint</a> (PDF - not yet available).</li>
+<li>Read the <a href="http://www.flypig.co.uk/papers/dlj-gr-passwords16.pdf">Cracking PwdHash paper</a> (PDF).</li>
+<li>View the <a href="http://www.flypig.co.uk/presentations/dlj-gr-passwords2016.pdf">Passwords16 presentation</a> (PDF).</li>
+<li>Get the <a href="https://chrome.google.com/webstore/detail/pwdhash-poc-port/lofhgnhbjellcpcdpkbejffjejhchacj">Chrome extension</a>, updated by <a href="https://github.com/CyBot">CyBot</a> to include these changes.
+
 <li>Send us <a href="mailto:David.Llewellyn-Jones@cl.cam.ac.uk">feedback</a>.</li>
 </ul>
 </div>
